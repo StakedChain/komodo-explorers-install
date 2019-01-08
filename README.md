@@ -8,11 +8,14 @@ Install process:
 - Clone staked repo 
 - Run `buildkomodo.sh` from staked repo.
 - Clone this repo 
-- Run ./install-explorers.sh 
+- Run `./install-explorers.sh`
 - Run `./startall.sh noconfig`
 - Run `./start-explorers.sh`
+- Run `./ufwports.sh > ufwrules.sh`
+- Run `chmod +x ufwrules.sh`
+- Run `./ufwrules.sh`
 
-That should do it. You will have all coins running. Further setup needed for cross chain links and URL's, instrutions wil follow development of these. 
+That should do it. You will have all coins running. Further setup needed for cross chain links and URL's, instrutions will follow development of these. 
 
 
 ### Notes
