@@ -1,5 +1,20 @@
 ## Komodo Insight Explorer
 
+### LABS Instructions
+
+This repo is for KMDLABS explorers. You need the [staked](https://github.com/StakedChain/staked.git) repo for the coin daemons.
+
+Install process:
+- Clone staked repo 
+- Run `buildkomodo.sh` from staked repo.
+- Clone this repo 
+- Run ./install-explorers.sh 
+- Run `./startall.sh noconfig`
+- Run `./start-explorers.sh`
+
+That should do it. You will have all coins running. Further setup needed for cross chain links and URL's, instrutions wil follow development of these. 
+
+
 ### Notes
 
 Explorer uses [https://github.com/jl777/komodo](https://github.com/jl777/komodo) **dev** branch komodod (as it already included all needed for bitcore insight: `txindex`, `addressindex`, `timestampindex`,
@@ -185,6 +200,3 @@ Note: you should build VRSC komodod (verusd) manually, also make sure that you r
 Follow this: https://github.com/VerusCoin/VerusCoin/blob/master/src/verusd to check params.
 
 VRSC will not work with original komodod from Komodo repo!
-
-
-

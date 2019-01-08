@@ -11,14 +11,11 @@ rpcport=8232
 zmqport=8332
 webport=3001
 
-declare -a kmd_coins=(CFEKX CFEKY) # TODO use assetchains.json.
-
-for i in "${kmd_coins[@]}"
-do
+./listassetchains.py | while read i; do
    rpcport=$((rpcport+1))
    zmqport=$((zmqport+1))
    webport=$((webport+1))
-   daemon_getinfo=$(komodo/src/komodo-cli -ac_name=$i getinfo) # TODO fix this!
+   daemon_getinfo=$(~/staked/komodo/master/komodo-cli -ac_name=$i getinfo)
    daemon_name=$(echo $daemon_getinfo | jq .name)
    daemon_name=$(echo $daemon_name | tr -d '"')
    daemon_rpcport=$(echo $daemon_getinfo | jq .rpcport)

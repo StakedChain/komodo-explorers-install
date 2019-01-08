@@ -44,10 +44,16 @@ zmqport=8332
 webport=3001
 
 # now we need to create assets configs for komodod and create explorers for each asset
-declare -a kmd_coins=(CFEKX CFEKY) # TODO make this use assetchains.json.
+ac_json=$(curl https://raw.githubusercontent.com/StakedChain/StakedNotary/master/assetchains.json 2>/dev/null)
+echo $ac_json | jq .[] > /dev/null 2>&1
+outcome=$(echo $?)
+if [[ $outcome != 0 ]]; then
+  echo -e "\033[1;31m ABORTING!!! assetchains.json is invalid, Help Human! \033[0m"
+  exit
+fi
+echo $ac_json > assetchains.json
 
-for i in "${kmd_coins[@]}"
-do
+./listassetchains.py | while read i; do
    echo -e "$STEP_START[ Step 4.$i ]$STEP_END Preparing $i"
    rpcport=$((rpcport+1))
    zmqport=$((zmqport+1))
@@ -70,15 +76,7 @@ rpcuser=bitcoin
 rpcpassword=local321
 uacomment=bitcore
 showmetrics=0
-#connect=172.17.112.30
 
-addnode=5.9.102.210
-addnode=78.47.196.146
-addnode=178.63.69.164
-addnode=88.198.65.74
-addnode=5.9.122.241
-addnode=144.76.94.38
-addnode=89.248.166.91
 EOF
 
 $CUR_DIR/node_modules/bitcore-node-komodo/bin/bitcore-node create $i-explorer

@@ -3,7 +3,6 @@
 CUR_DIR=$(pwd)
 mkdir -p $CUR_DIR/helper
 mkdir -p $CUR_DIR/helper/nginx/sites-available
-declare -a kmd_coins=(CFEKX CFEKY) # TODO user assetchains.json.
 
 # Let's Encrypt Renewal + DNS Zone + Nginx
 homedir=/home/decker
@@ -22,8 +21,7 @@ echo -n " -d $basehost -d www.$basehost" >> $CUR_DIR/helper/letsencrypt.txt
 
 webport=3001
 
-for i in "${kmd_coins[@]}"
-do
+./listassetchains.py | while read i; do
 	# https://stackoverflow.com/questions/2264428/how-to-convert-a-string-to-lower-case-in-bash
 	hostname=$(echo $i | tr '[:upper:]' '[:lower:]')
 	echo -n " -d $hostname.$basehost " >> $CUR_DIR/helper/letsencrypt.txt

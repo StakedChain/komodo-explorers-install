@@ -10,9 +10,6 @@ echo -e "$STEP_START[ Step 1 ]$STEP_END Starts all explorers in screen ..."
 # Killing all previous instances ...
 kill -9 $(pidof bitcore)
 
-declare -a kmd_coins=(CFEKX CFEKY) # TODO use assetchains.json.
-
-for i in "${kmd_coins[@]}"
-do
+./listassetchains.py | while read i; do
     screen -d -m -S $i-explorer $CUR_DIR/$i-explorer-start.sh
 done
