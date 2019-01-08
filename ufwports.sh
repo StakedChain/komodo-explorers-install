@@ -6,7 +6,7 @@ rpcport=8232
 zmqport=8332
 webport=3001
 
-declare -a kmd_coins=(CFEKX) # TODO use assetchains.json.
+declare -a kmd_coins=(CFEKX CFEKY) # TODO use assetchains.json.
 
 echo "sudo ufw allow 7770/tcp comment 'KMD p2p port'"
 

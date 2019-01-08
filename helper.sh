@@ -3,7 +3,7 @@
 CUR_DIR=$(pwd)
 mkdir -p $CUR_DIR/helper
 mkdir -p $CUR_DIR/helper/nginx/sites-available
-declare -a kmd_coins=(CFEKX) # TODO user assetchains.json.
+declare -a kmd_coins=(CFEKX CFEKY) # TODO user assetchains.json.
 
 # Let's Encrypt Renewal + DNS Zone + Nginx
 homedir=/home/decker

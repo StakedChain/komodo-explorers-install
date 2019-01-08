@@ -44,7 +44,7 @@ zmqport=8332
 webport=3001
 
 # now we need to create assets configs for komodod and create explorers for each asset
-declare -a kmd_coins=(CFEKX) # TODO make this use assetchains.json.
+declare -a kmd_coins=(CFEKX CFEKY) # TODO make this use assetchains.json.
 
 for i in "${kmd_coins[@]}"
 do
