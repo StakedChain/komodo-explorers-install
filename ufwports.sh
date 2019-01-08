@@ -12,7 +12,7 @@ echo "sudo ufw allow 7770/tcp comment 'KMD p2p port'"
    rpcport=$((rpcport+1))
    zmqport=$((zmqport+1))
    webport=$((webport+1))
-   daemon_getinfo=$(komodo/src/komodo-cli -ac_name=$i getinfo)
+   daemon_getinfo=$(~/staked/komodo/master/komodo-cli -ac_name=$i getinfo)
    daemon_name=$(echo $daemon_getinfo | jq .name)
    daemon_name=$(echo $daemon_name | tr -d '"')
    daemon_rpcport=$(echo $daemon_getinfo | jq .rpcport)
