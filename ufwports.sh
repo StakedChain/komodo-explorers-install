@@ -6,8 +6,6 @@ rpcport=8232
 zmqport=8332
 webport=3001
 
-echo "sudo ufw allow 7770/tcp comment 'KMD p2p port'"
-
 ./listassetchains.py | while read i; do
    rpcport=$((rpcport+1))
    zmqport=$((zmqport+1))
