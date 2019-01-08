@@ -20,7 +20,7 @@ echo -e "$STEP_START[ Step 1 ]$STEP_END Installing dependencies"
 sudo apt --yes install git
 sudo apt --yes install build-essential pkg-config libc6-dev libevent-dev m4 g++-multilib autoconf libtool libncurses5-dev unzip git python zlib1g-dev wget bsdmainutils automake libboost-all-dev libssl-dev libprotobuf-dev protobuf-compiler libqt4-dev libqrencode-dev libdb++-dev ntp ntpdate
 sudo apt --yes install libcurl4-gnutls-dev
-sudo apt --yes install curl
+sudo apt --yes install curl screen
 
 
 echo -e "$STEP_START[ Step 3 ]$STEP_END Installing NodeJS and Bitcore Node"

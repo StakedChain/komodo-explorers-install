@@ -18,7 +18,7 @@ Install process:
 That should do it. You will have all coins running. Further setup needed for cross chain links and URL's, instrutions will follow development of these. 
 
 
-### Notes
+### KMD Documentaion for referance.
 
 Explorer uses [https://github.com/jl777/komodo](https://github.com/jl777/komodo) **dev** branch komodod (as it already included all needed for bitcore insight: `txindex`, `addressindex`, `timestampindex`,
 `spentindex` and zmq support). 
