@@ -53,7 +53,21 @@ if [[ $outcome != 0 ]]; then
 fi
 echo $ac_json > assetchains.json
 
-./listassetchains.py | while read i; do
+if [[ -z $1 ]]; then
+  specificchain=0
+else
+  specificchain=$1
+fi
+
+listassetchains () {
+  if [[ $specificchain = "0" ]]; then
+    ./listassetchains.py
+  else
+    echo $specificchain
+  fi
+}
+
+listassetchains | while read i; do
    echo -e "$STEP_START[ Step 4.$i ]$STEP_END Preparing $i"
    rpcport=$((rpcport+1))
    zmqport=$((zmqport+1))
